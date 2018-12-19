@@ -60,7 +60,7 @@ public class AdminController {
 
     @PostMapping("/teacherList")
     public String teacherList(Model model, TeacherFilter filter) {
-        List<Teacher> teachers=teacherService.getTeachersByFilter(filter);
+        List<Teacher> teachers=teacherService.listBy TeachersByFilter(filter);
         int sumPage = (teachers.size() - 1) / filter.getCount() + 1;
         int page = filter.getPage() < 1 ? 1 : (filter.getPage() > sumPage ? sumPage : filter.getPage());
         int fromIndex = (page - 1) * filter.getCount();

@@ -11,5 +11,10 @@ import java.util.List;
 @Component
 public interface SeminarMapper extends Mapper<Seminar> {
 
+    /**
+     * 通过课程id获得讨论课id
+     * @param courseId
+     * @return
+     */
     List<Long> selectIdByCourseId(Long courseId);
 }

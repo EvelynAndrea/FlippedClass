@@ -3,12 +3,15 @@ package online.templab.flippedclass.service.impl;
 import com.github.pagehelper.Page;
 import online.templab.flippedclass.dao.StudentDao;
 import online.templab.flippedclass.entity.Student;
+import online.templab.flippedclass.pojo.dto.StudentFilter;
 import online.templab.flippedclass.service.StudentService;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author fj
@@ -23,6 +26,11 @@ public class StudentServiceImpl implements StudentService {
     private PasswordEncoder passwordEncoder;
 
     private static final String DEFAULT_PASSWORD = "123456";
+
+    @Override
+    public List<Student> listByStudentsByFilter(StudentFilter filter) {
+        return null;
+    }
 
     @Override
     public Boolean insert(Student student) {
@@ -83,5 +91,10 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public Page<Student> getPage(RowBounds rowBounds) {
         return studentDao.getPage(rowBounds);
+    }
+
+    @Override
+    public Student getByAccount(String account) {
+        return null;
     }
 }

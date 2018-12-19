@@ -22,4 +22,14 @@ public class TeacherMapperTest extends FlippedClassApplicationTest {
         Assert.assertEquals(1, line);
     }
 
+    @Test
+    public void testSelectByAccount()
+    {
+        String account="test72";
+        Teacher teacher=teacherMapper.selectByAccount(account);
+        Assert.assertNotNull(teacher);
+        logger.info(teacher.toString());
+    }
+
+
 }

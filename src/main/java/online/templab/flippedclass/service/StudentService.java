@@ -20,7 +20,7 @@ public interface StudentService {
      * @return
      */
 
-    List<Student> listByTeachersByFilter(StudentFilter filter);
+    List<Student> listByStudentsByFilter(StudentFilter filter);
     /**
      * 插入一个 Student
      *
