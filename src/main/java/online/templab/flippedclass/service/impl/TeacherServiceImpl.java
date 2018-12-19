@@ -32,7 +32,7 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     public List<Teacher> listByTeachersByFilter(TeacherFilter filter) {
-        return null;
+        return teacherDao.selectAll(filter);
     }
 
     @Override

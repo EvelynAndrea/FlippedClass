@@ -2,6 +2,7 @@ package online.templab.flippedclass.dao;
 
 import com.github.pagehelper.Page;
 import online.templab.flippedclass.entity.Teacher;
+import online.templab.flippedclass.pojo.dto.TeacherFilter;
 import org.apache.ibatis.session.RowBounds;
 
 import java.util.List;
@@ -11,6 +12,11 @@ import java.util.List;
  */
 public interface TeacherDao  {
 
+    /**
+     * 获得所有老师信息
+     * @return
+     */
+    List<Teacher> selectAll(TeacherFilter filter);
     /**
      * 根据 account 更新属性不为 null 的值
      *

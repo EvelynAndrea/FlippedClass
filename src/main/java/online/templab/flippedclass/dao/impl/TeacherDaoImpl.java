@@ -6,6 +6,7 @@ import online.templab.flippedclass.entity.Course;
 import online.templab.flippedclass.entity.Seminar;
 import online.templab.flippedclass.entity.Teacher;
 import online.templab.flippedclass.mapper.*;
+import online.templab.flippedclass.pojo.dto.TeacherFilter;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -32,6 +33,11 @@ public class TeacherDaoImpl implements TeacherDao {
 
     @Autowired
     private TeamMapper teamMapper;
+
+    @Override
+    public List<Teacher> selectAll(TeacherFilter filter) {
+        return null;
+    }
 
     @Override
     public int updateByAccountSelective(Teacher record) {
