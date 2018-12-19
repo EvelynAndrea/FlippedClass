@@ -1,0 +1,19 @@
+{
+  "groups": [
+    {
+      "name": "storage",
+      "type": "online.templab.flippedclass.common.multipart.StorageProperties",
+      "sourceType": "online.templab.flippedclass.common.multipart.StorageProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "storage.location",
+      "type": "java.lang.String",
+      "description": "Folder location for storing files",
+      "sourceType": "online.templab.flippedclass.common.multipart.StorageProperties",
+      "defaultValue": "upload"
+    }
+  ],
+  "hints": []
+}
