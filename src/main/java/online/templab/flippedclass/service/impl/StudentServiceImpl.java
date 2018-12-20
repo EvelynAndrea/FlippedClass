@@ -110,7 +110,23 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student getByAccount(String account) {
-        return null;
+    public List<Student> getByKeyword(String keyword)
+    {
+        int length=keyword.length();
+        boolean isId=true;
+
+        for(int i=0;i<length;i++){
+            if(!Character.isDigit(keyword.charAt(i))) {
+                isId = false;
+                break;
+            }
+        }
+
+        if(isId) {
+            return (List<Student>) studentDao.selectByPrimaryKey(keyword);
+        }
+        else {
+            return studentDao.select(new Student().setStudentName(keyword));
+        }
     }
 }

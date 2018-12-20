@@ -18,6 +18,7 @@ import java.util.List;
  * Teacher 业务 实现类
  *
  * @author wk
+ * @author zyx
  */
 @Service
 public class TeacherServiceImpl implements TeacherService {
@@ -112,7 +113,24 @@ public class TeacherServiceImpl implements TeacherService {
     }
 
     @Override
-    public Teacher getByAccount(String account) {
-        return null;
+    public List<Teacher> getByKeyword(String keyword)
+    {
+        int length=keyword.length();
+        boolean isId=true;
+
+        for(int i=0;i<length;i++){
+            if(!Character.isDigit(keyword.charAt(i))) {
+                isId = false;
+                break;
+            }
+        }
+
+        if(isId) {
+            return (List<Teacher>) teacherDao.selectByPrimaryKey(keyword);
+        }
+        else {
+            return teacherDao.select(new Teacher().setTeacherName(keyword));
+        }
     }
+
 }

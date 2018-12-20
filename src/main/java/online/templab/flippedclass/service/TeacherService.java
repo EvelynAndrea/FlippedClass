@@ -98,11 +98,11 @@ public interface TeacherService {
     Page<Teacher> getPage(RowBounds rowBounds);
 
     /**
-     * 根据 account 获得一个 Teacher
+     * 根据 查询关键字keyword 获得一组 Teacher
      *
-     * @param account
+     * @param keyword
      * @return
      */
-    Teacher getByAccount(String account);
+    List<Teacher> getByKeyword(String keyword);
 
 }

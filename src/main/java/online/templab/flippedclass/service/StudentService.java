@@ -95,12 +95,12 @@ public interface StudentService {
     Page<Student> getPage(RowBounds rowBounds);
 
     /**
-     * 根据 account 获得一个 Student
+     * 根据输入关键字 keyword 获得一个 Student
      *
-     * @param account
+     * @param keyword
      * @return
      */
-    Student getByAccount(String account);
+    List<Student> getByKeyword(String keyword);
 
 
 }
