@@ -93,6 +93,20 @@ public class TeacherServiceImpl implements TeacherService {
     }
 
     @Override
+    public Boolean modifyTeacherInfo(Long id, String teacherName,String account,String email)
+    {
+        int line = teacherDao.updateByPrimaryKeySelective(
+                new Teacher()
+                    .setId(id)
+                    .setAccount(account)
+                    .setTeacherName(teacherName)
+                    .setEmail(email)
+
+        );
+        return line==1;
+    }
+
+    @Override
     public Page<Teacher> getPage(RowBounds rowBounds) {
         return (Page<Teacher>) teacherDao.selectByRowBounds(new Teacher(), rowBounds);
     }

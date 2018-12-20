@@ -15,6 +15,7 @@ import java.util.List;
 
 /**
  * @author fj
+ * @author zyx
  */
 @Service
 public class StudentServiceImpl implements StudentService {
@@ -87,6 +88,21 @@ public class StudentServiceImpl implements StudentService {
         );
         return line == 1;
     }
+
+    @Override
+    public  Boolean modifyStudentInfo(Long id, String studentName,String account,String email)
+    {
+        int line = studentDao.updateByPrimaryKeySelective(
+                new Student()
+                        .setId(id)
+                        .setAccount(account)
+                        .setStudentName(studentName)
+                        .setEmail(email)
+
+        );
+        return line==1;
+    }
+
 
     @Override
     public Page<Student> getPage(RowBounds rowBounds) {

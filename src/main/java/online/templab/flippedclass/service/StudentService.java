@@ -1,6 +1,7 @@
 package online.templab.flippedclass.service;
 
 import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import online.templab.flippedclass.entity.Student;
 import online.templab.flippedclass.pojo.dto.StudentFilter;
 import org.apache.ibatis.session.RowBounds;
@@ -73,6 +74,19 @@ public interface StudentService {
     Boolean modifyPassword(Long id, String password);
 
     /**
+     * 根据 id 修改某个账号的姓名，学号，邮箱
+     *
+     * @param id
+     * @param studentName
+     * @param account
+     * @param email
+     * @author zyx
+     * @return
+     */
+    Boolean modifyStudentInfo(Long id, String studentName,String account,String email);
+
+
+    /**
      * 获得一个分页: 传入 rowBounds(pageNum,limit) ,返回一个 List<Student>
      *
      * @param rowBounds
@@ -87,5 +101,6 @@ public interface StudentService {
      * @return
      */
     Student getByAccount(String account);
+
 
 }

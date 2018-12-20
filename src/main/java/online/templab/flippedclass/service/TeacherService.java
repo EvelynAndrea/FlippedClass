@@ -13,6 +13,7 @@ import java.util.List;
  * <br/>传入的密码均为未加密的,由service来进行加密
  *
  * @author wk
+ * @author zyx
  */
 public interface TeacherService {
 
@@ -75,6 +76,18 @@ public interface TeacherService {
      * @return
      */
     Boolean modifyPassword(Long id, String password);
+
+    /**
+     * 根据 id 修改某个账号的姓名，教工号，邮箱
+     *
+     * @param id
+     * @param teacherName
+     * @param account
+     * @param email
+     * @author zyx
+     * @return
+     */
+    Boolean modifyTeacherInfo(Long id, String teacherName,String account,String email);
 
     /**
      * 获得一个分页: 传入 rowBounds(pageNum,limit) ,返回一个 List<Teacher>
