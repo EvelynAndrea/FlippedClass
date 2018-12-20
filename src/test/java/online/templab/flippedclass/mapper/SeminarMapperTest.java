@@ -20,23 +20,10 @@ public class SeminarMapperTest extends FlippedClassApplicationTest {
         long courseId=1;
 
         List<Long> idList=new ArrayList<>();
-        try {
-            idList = seminarMapper.selectIdByCourseId(courseId);
-        }catch (Exception e)
-        {
-            //TODO 异常执行块
-            e.printStackTrace();
-        }finally {
-            if(idList!=null)
-            {
-                for(long l:idList)
-                {
-                    System.out.println(l);
-                    Assert.assertNotNull(l);
-                    logger.info(String.valueOf(l));
-                }
-            }
-        }
+        idList = seminarMapper.selectIdByCourseId(courseId);
+        Assert.assertNotNull(idList);
+
+
 
     }
 }

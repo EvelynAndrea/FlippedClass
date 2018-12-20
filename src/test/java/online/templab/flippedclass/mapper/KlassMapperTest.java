@@ -19,24 +19,8 @@ public class KlassMapperTest extends FlippedClassApplicationTest {
         long courseId=1;
 
         List<Long> idList=new ArrayList<>();
+        idList=klassMapper.selecIdtByCourseId(courseId);
+        Assert.assertNotNull(idList);
 
-        try
-        {
-            idList=klassMapper.selecIdtByCourseId(courseId);
-        }catch(Exception e){
-            //TODO 异常执行操作
-            e.printStackTrace();
-    }finally {
-            if(idList!=null)
-            {
-                for(long l:idList)
-                {
-                    System.out.println(l);
-                    Assert.assertNotNull(l);
-                    logger.info(String.valueOf(l));
-                }
-
-            }
-        }
     }
 }
