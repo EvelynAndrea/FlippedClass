@@ -93,7 +93,7 @@ public class AdminController {
     @PatchMapping(value = "/teacher")
     public @ResponseBody
     ResponseEntity<Object> updateTeacher(@RequestBody Teacher teacher) {
-        if (accountManageService.updateTeacher(teacher)) {
+        if (teacherService.modifyTeacherInfo(teacher.getId(),teacher.getTeacherName(),teacher.getAccount(),teacher.getEmail())) {
             return ResponseEntity.status(HttpStatus.OK).body(null);
         } else {
             return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
@@ -103,7 +103,7 @@ public class AdminController {
     @PatchMapping("/teacher/{teacherNum}/resetPwd")
     public @ResponseBody
     ResponseEntity<Object> resetTeacherPassword(@PathVariable String teacherNum) {
-        if (accountManageService.teacherResetPassword(teacherNum)) {
+        if (teacherService.resetPassword(teacherNum)) {
             return ResponseEntity.status(HttpStatus.OK).body(null);
         } else {
             return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
@@ -172,7 +172,7 @@ public class AdminController {
     @PatchMapping("/student")
     public @ResponseBody
     ResponseEntity<Object> updateStudent(@RequestBody Student student) {
-        if (accountManageService.updateStudent(student)) {
+        if (studentService.modifyStudentInfo(student.getId(),student.getStudentName(),student.getAccount(),student.getEmail())) {
             return ResponseEntity.status(HttpStatus.OK).body(null);
         } else {
             return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
@@ -182,7 +182,7 @@ public class AdminController {
     @PatchMapping("/student/{studentNum}/resetPwd")
     public @ResponseBody
     ResponseEntity<Object> resetStudentPassword(@PathVariable String studentNum) {
-        if (accountManageService.studentResetPassword(studentNum)) {
+        if (studentService.resetPassword(studentNum)) {
             return ResponseEntity.status(HttpStatus.OK).body(null);
         } else {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
