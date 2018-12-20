@@ -12,6 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * @author fj
+ * @author zyx
  */
 public class StudentServiceImplTest extends FlippedClassApplicationTest {
 
@@ -77,9 +78,45 @@ public class StudentServiceImplTest extends FlippedClassApplicationTest {
     }
 
     @Test
+    public void testModifyInfo() throws Exception{
+        Student student=createStudent();
+        studentService.insert(student);
+        System.out.println(student);
+
+        Boolean success=studentService.modifyStudentInfo(student.getId(),"nameTest",String.valueOf(random.nextInt(1000)),"emailTest");
+        Assert.assertEquals(true, success);
+    }
+
+    @Test
     public void testGetPage() throws Exception {
         Page<Student> page = studentService.getPage(new RowBounds(1, 5));
         Assert.assertNotNull(page);
     }
+
+    @Test
+    public void testGetName() throws Exception{
+        Student student=createStudent();
+        studentService.insert(student);
+        System.out.println(student);
+
+        int ListSize=studentService.getByKeyword(student.getStudentName()).size();
+        boolean success=(ListSize!=0);
+        Assert.assertEquals(true, success);
+
+    }
+
+    @Test
+    public void testGetAccount() throws Exception{
+
+        Student student=createStudent();
+        studentService.insert(student);
+        System.out.println(student);
+
+        int ListSize=studentService.getByKeyword(student.getAccount()).size();
+        boolean success=(ListSize!=0);
+        Assert.assertEquals(true, success);
+
+    }
+
 
 }

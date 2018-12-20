@@ -65,9 +65,44 @@ public class TeacherServiceImplTest extends FlippedClassApplicationTest {
     }
 
     @Test
+    public void testModifyInfo() throws Exception{
+        Teacher teacher=createTeacher();
+        teacherService.insert(teacher);
+        System.out.println(teacher);
+
+        Boolean success=teacherService.modifyTeacherInfo(teacher.getId(),"nameTest",String.valueOf(random.nextInt(1000)),"emailTest");
+        Assert.assertEquals(true, success);
+    }
+
+    @Test
     public void testGetPage() throws Exception {
         Page<Teacher> page = teacherService.getPage(new RowBounds(1, 5));
         Assert.assertNotNull(page);
+    }
+
+    @Test
+    public void testGetName() throws Exception{
+        Teacher teacher=createTeacher();
+        teacherService.insert(teacher);
+        System.out.println(teacher);
+
+        int ListSize=teacherService.getByKeyword(teacher.getTeacherName()).size();
+        boolean success=(ListSize!=0);
+        Assert.assertEquals(true, success);
+
+    }
+
+    @Test
+    public void testGetAccount() throws Exception{
+
+        Teacher teacher=createTeacher();
+        teacherService.insert(teacher);
+        System.out.println(teacher);
+
+        int ListSize=teacherService.getByKeyword(teacher.getAccount()).size();
+        boolean success=(ListSize!=0);
+        Assert.assertEquals(true, success);
+
     }
 
 } 
